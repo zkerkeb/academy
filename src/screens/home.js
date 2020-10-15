@@ -19,14 +19,18 @@ const Home = ({ history }) => {
   return (
     <Container>
       <CategoryContainer>
-        {coursesList.map(course => (
-          <ButtonCategory
-            key={course.id}
-            label={course.title}
-            description={course.description}
-            onClick={() => history.push(`/${course.id}/lessons`)}
-          ></ButtonCategory>
-        ))}
+        {coursesList[0] ? (
+          coursesList.map(course => (
+            <ButtonCategory
+              key={course.id}
+              label={course.title}
+              description={course.description}
+              onClick={() => history.push(`/${course.id}/lessons`)}
+            ></ButtonCategory>
+          ))
+        ) : (
+          <span>Pas de cours disponible</span>
+        )}
       </CategoryContainer>
       {/* {shots.map(shot => (
         <Shot key={shot.id} shot={shot}></Shot>
