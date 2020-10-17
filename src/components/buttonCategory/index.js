@@ -56,6 +56,7 @@ const IllustrationContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 265px;
 `
 
 const Illustration = styled.img`
