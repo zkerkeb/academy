@@ -23,6 +23,7 @@ const Home = ({ history }) => {
           coursesList.map(course => (
             <ButtonCategory
               key={course.id}
+              cover={course?.cover?.url}
               label={course.title}
               description={course.description}
               onClick={() => history.push(`/${course.id}/lessons`)}

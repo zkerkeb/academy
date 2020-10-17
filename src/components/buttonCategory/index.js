@@ -12,12 +12,12 @@ const ButtonCategory = ({
   onClick,
   label,
   description,
-  image = defaultImage
+  cover = defaultImage
 }) => {
   return (
     <Category onClick={onClick}>
       <IllustrationContainer>
-        <Illustration src={image}></Illustration>
+        <Illustration src={cover}></Illustration>
       </IllustrationContainer>
       <LabelContainer>
         <Label>{label}</Label>
@@ -59,7 +59,7 @@ const IllustrationContainer = styled.div`
 `
 
 const Illustration = styled.img`
-  width: 100%;
+  width: 70%;
 `
 
 const Category = styled.div`
