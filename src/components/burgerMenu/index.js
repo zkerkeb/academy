@@ -7,6 +7,10 @@ import { motion } from 'framer-motion'
 
 import { devices } from '../../config/devices'
 
+import { MenuText } from '../texts'
+import { useContext } from 'react'
+import { ThemeContext } from 'styled-components'
+
 const BurgerMenu = ({
   windowWidth,
   menuOpen,
@@ -15,6 +19,7 @@ const BurgerMenu = ({
   handleClickMobile
 }) => {
   const { t } = useTranslation()
+  const theme = useContext(ThemeContext)
 
   return (
     <Menu
@@ -30,7 +35,11 @@ const BurgerMenu = ({
       <MenuVisible>
         <CrossContainer>
           <CrossClickable>
-            <FaTimes onClick={handleClose} color='white' size={30}></FaTimes>
+            <FaTimes
+              onClick={handleClose}
+              color={theme.general.menu}
+              size={30}
+            ></FaTimes>
           </CrossClickable>
         </CrossContainer>
         <MenuContent>
@@ -71,18 +80,18 @@ const MenuContent = styled.div`
 `
 
 const Menu = styled(motion.div)`
-  @media ${devices.mobileL} {
-    display: none;
+  @media ${devices.laptop} {
+    display: ${props => (props.isVisible ? 'flex' : 'none')};
+    position: fixed;
+    flex-direction: row;
+    width: ${props => `${props.width}px`};
+    height: 100vh;
+    top: 0px;
+    right: 0px;
+    z-index: 10;
+    background-color: transparent;
   }
-  display: ${props => (props.isVisible ? 'flex' : 'none')};
-  position: fixed;
-  flex-direction: row;
-  width: ${props => `${props.width}px`};
-  height: 100vh;
-  top: 0px;
-  right: 0px;
-  z-index: 10;
-  background-color: transparent;
+  display: none;
 `
 
 const MenuVisible = styled.div`
@@ -94,11 +103,6 @@ const MenuVisible = styled.div`
 const MenuHidden = styled.div`
   display: flex;
   flex: 1;
-`
-
-const MenuText = styled.span`
-  color: ${props => props.theme.general.menu};
-  font-weight: bold;
 `
 
 BurgerMenu.propTypes = {

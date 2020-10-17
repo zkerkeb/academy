@@ -8,7 +8,6 @@ export const displayLessons = payload => ({
 })
 
 export const getLessons = ({ idCourse }) => dispatch => {
-  console.log('idCourse', idCourse)
   axios({
     method: 'GET',
     url: `${process.env.REACT_APP_API_URL}/lessons`,

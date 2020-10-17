@@ -50,6 +50,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   padding: 12px;
+  width: 100%;
 `
 
 Home.propTypes = {

@@ -1,3 +1,4 @@
 import logoSmall from './logoSmall.png'
+import defaultImage from './defaultImage.png'
 
-export { logoSmall }
+export { defaultImage, logoSmall }

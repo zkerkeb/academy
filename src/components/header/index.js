@@ -12,6 +12,9 @@ import BurgerMenu from '../burgerMenu'
 import { logoSmall } from '../../assets/images'
 import { devices } from '../../config/devices'
 
+import { useContext } from 'react'
+import { ThemeContext } from 'styled-components'
+
 const Header = () => {
   const { t } = useTranslation()
   const history = useHistory()
@@ -19,6 +22,7 @@ const Header = () => {
   const windowWidth = useWindowWidth()
   const [animation, setAnimation] = useState('hidden')
   let timer = useRef(null)
+  const theme = useContext(ThemeContext)
 
   const handleClickMobile = location => {
     history.push(location)
@@ -50,7 +54,7 @@ const Header = () => {
         ></HeaderButton>
       </ButtonContainer>
       <MenuBurger onClick={handleOpen}>
-        <FaBars size={30} color='white'></FaBars>
+        <FaBars size={30} color={theme.general.menu}></FaBars>
       </MenuBurger>
       <BurgerMenu
         windowWidth={windowWidth}
@@ -103,7 +107,8 @@ const HeaderContainer = styled.div`
   display: flex;
   cursor: pointer;
   width: 100%;
-  background-color: ${props => props.theme.general.secondary};
+  background-color: ${props => props.theme.general.primary};
+  box-shadow: 0px 0px 10px ${props => props.theme.general.headerShadow};
 `
 
 Header.propTypes = {}

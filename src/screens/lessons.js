@@ -30,7 +30,7 @@ const Lessons = ({ history }) => {
             ></ButtonCategory>
           ))
         ) : (
-          <span>Pas de vidéos disponible</span>
+          <span>Pas de leçons disponible</span>
         )}
       </LessonButtonContainer>
     </LessonsContainer>

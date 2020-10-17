@@ -1,12 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { useHistory } from 'react-router-dom'
 
 const url = process.env.REACT_APP_API_URL
 
 const Cover = ({ data, onClick }) => {
-  console.log('Cover -> data', data)
   return (
     <Container>
       <CoverImage

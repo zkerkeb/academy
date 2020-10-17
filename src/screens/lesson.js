@@ -91,7 +91,7 @@ const VideoContainer = styled.div`
   }
 `
 const NextText = styled.div`
-  color: white;
+  color: ${props => props.theme.text.common};
   font-weight: bold;
 `
 

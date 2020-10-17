@@ -4,12 +4,20 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { devices } from '../../config/devices'
+import { defaultImage } from '../../assets/images'
 
-const ButtonCategory = ({ onClick, label, description }) => {
+import { Label, Description } from '../texts'
+
+const ButtonCategory = ({
+  onClick,
+  label,
+  description,
+  image = defaultImage
+}) => {
   return (
     <Category onClick={onClick}>
       <IllustrationContainer>
-        <Illustration src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Progressive_Web_Apps_Logo.svg/1200px-Progressive_Web_Apps_Logo.svg.png'></Illustration>
+        <Illustration src={image}></Illustration>
       </IllustrationContainer>
       <LabelContainer>
         <Label>{label}</Label>
@@ -25,14 +33,14 @@ const DescriptionContainer = styled.div`
   padding: 12px;
 `
 
-const Label = styled.span`
-  color: white;
-  font-weight: bold;
-`
+// const Label = styled.span`
+//   color: white;
+//   font-weight: bold;
+// `
 
-const Description = styled.span`
-  color: white;
-`
+// const Description = styled.span`
+//   color: white;
+// `
 
 const LabelContainer = styled.div`
   padding: 12px;
@@ -51,21 +59,7 @@ const IllustrationContainer = styled.div`
 `
 
 const Illustration = styled.img`
-  @media ${devices.mobileS} {
-    width: 100%;
-  }
-  @media ${devices.mobileL} {
-    width: 100%;
-  }
-  @media ${devices.tablet} {
-    width: 200px;
-  }
-  @media ${devices.laptop} {
-    width: 400px;
-  }
-  @media ${devices.desktopL} {
-    width: 400px;
-  }
+  width: 100%;
 `
 
 const Category = styled.div`

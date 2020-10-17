@@ -14,10 +14,6 @@ function App() {
   const [currentTheme, setCurrentTheme] = useState(themeLight)
   useEffect(() => {
     store.subscribe(() => {
-      console.log(
-        'App -> store.getState().theme.currentTheme',
-        store.getState()
-      )
       setCurrentTheme(store.getState().theme.currentTheme)
     })
   })
