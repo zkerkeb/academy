@@ -27,6 +27,7 @@ const Lessons = ({ history }) => {
                 history.push(`/${idCourse}/lessons/${lesson.id}`)
               }}
               label={lesson.title}
+              cover={lesson.cover?.url}
             ></ButtonCategory>
           ))
         ) : (
