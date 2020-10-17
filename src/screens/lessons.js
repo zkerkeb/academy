@@ -39,7 +39,7 @@ const Lessons = ({ history }) => {
 
 const LessonButtonContainer = styled.div`
   max-width: 1200px;
-  width: 100%;
+  width: 90%;
 
   display: flex;
   justify-content: space-evenly;
@@ -51,7 +51,7 @@ const LessonsContainer = styled.div`
   /* flex-direction: column; */
   justify-content: center;
   align-items: center;
-  padding: 12px;
+  width: 100%;
 `
 
 Lessons.propTypes = {

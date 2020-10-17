@@ -58,10 +58,16 @@ const IllustrationContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 265px;
+  @media ${devices.mobileL} {
+    height: 130px;
+  }
 `
 
 const Illustration = styled.img`
   width: 70%;
+  @media ${devices.mobileL} {
+    width: 50%;
+  }
 `
 
 const Category = styled.div`
