@@ -71,7 +71,7 @@ const Category = styled.div`
   display: flex;
   cursor: pointer;
   max-width: 460px;
-  min-width: 200px;
+  /* min-width: 200px; */
   width: 100%;
   margin: 6px 0px;
   align-items: center;

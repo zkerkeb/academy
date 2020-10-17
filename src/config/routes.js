@@ -19,6 +19,9 @@ const GlobalStyle = createGlobalStyle`
     transition: background-color 1s ease;
     background-color: ${props => props.theme.general.primary};
   }
+  html, body {
+  overflow-x: hidden;
+}
 `
 const Routes = () => {
   return (

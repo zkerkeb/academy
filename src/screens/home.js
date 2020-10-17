@@ -41,7 +41,8 @@ const Home = ({ history }) => {
 }
 const CategoryContainer = styled.div`
   display: flex;
-  width: 100%;
+  width: 90%;
+  padding: 12px 0px;
   max-width: 1200px;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -50,7 +51,6 @@ const CategoryContainer = styled.div`
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  padding: 12px;
   width: 100%;
 `
 
