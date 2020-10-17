@@ -46,7 +46,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <LogoContainer onClick={() => history.push('/')}>
-        <Logo src={logoSmall}></Logo>
+        <Logo src={theme.logo}></Logo>
       </LogoContainer>
 
       <ButtonContainer>

@@ -1,5 +1,7 @@
+import { logoSmall, logoSmallGrey } from '../assets/images'
 const themeLight = {
   name: 'light',
+  logo: logoSmall,
   general: {
     primary: '#ffffff',
     secondary: '#f6f6f6',
@@ -17,6 +19,7 @@ const themeLight = {
 
 const themeDark = {
   name: 'dark',
+  logo: logoSmallGrey,
   general: {
     primary: '#222222',
     secondary: '#363636',
