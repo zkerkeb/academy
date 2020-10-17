@@ -47,6 +47,7 @@ const LabelContainer = styled.div`
 `
 
 const IllustrationContainer = styled.div`
+  transition: background-color 1s ease;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   margin: 0px 12px;
@@ -65,6 +66,7 @@ const Illustration = styled.img`
 
 const Category = styled.div`
   box-sizing: border-box;
+  transition: background-color 1s ease;
 
   display: flex;
   cursor: pointer;

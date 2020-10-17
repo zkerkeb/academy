@@ -5,13 +5,13 @@ import { ThemeProvider } from 'styled-components'
 import { Provider } from 'react-redux'
 
 import { store, persistor } from './config/store'
-import { themeLight } from './config/theme'
+import { themeLight, themeDark } from './config/theme'
 import { PersistGate } from 'redux-persist/integration/react'
 
 import './config/translations'
 
 function App() {
-  const [currentTheme, setCurrentTheme] = useState(themeLight)
+  const [currentTheme, setCurrentTheme] = useState(themeDark)
   useEffect(() => {
     store.subscribe(() => {
       setCurrentTheme(store.getState().theme.currentTheme)

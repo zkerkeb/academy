@@ -14,6 +14,7 @@ import { devices } from '../../config/devices'
 
 import { useContext } from 'react'
 import { ThemeContext } from 'styled-components'
+import ThemeButton from '../settingsButtons/themeButton'
 
 const Header = () => {
   const { t } = useTranslation()
@@ -47,12 +48,16 @@ const Header = () => {
       <LogoContainer onClick={() => history.push('/')}>
         <Logo src={logoSmall}></Logo>
       </LogoContainer>
+
       <ButtonContainer>
         <HeaderButton
           onClick={() => history.push('/')}
           label={t('menu.courses')}
         ></HeaderButton>
       </ButtonContainer>
+      <ThemeContainer>
+        <ThemeButton></ThemeButton>
+      </ThemeContainer>
       <MenuBurger onClick={handleOpen}>
         <FaBars size={30} color={theme.general.menu}></FaBars>
       </MenuBurger>
@@ -102,7 +107,12 @@ const Logo = styled.img`
   height: 60px;
 `
 
+const ThemeContainer = styled.div`
+  padding: 12px;
+`
+
 const HeaderContainer = styled.div`
+  transition: background-color 1s ease;
   padding: 12px;
   display: flex;
   cursor: pointer;

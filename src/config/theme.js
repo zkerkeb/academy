@@ -1,4 +1,5 @@
 const themeLight = {
+  name: 'light',
   general: {
     primary: '#ffffff',
     secondary: '#f6f6f6',
@@ -9,16 +10,27 @@ const themeLight = {
   },
   text: {
     common: '#000000',
-    menu: '#000000'
-  },
-  secondary: 'green'
+    menu: '#000000',
+    code: 'red'
+  }
 }
 
 const themeDark = {
+  name: 'dark',
   general: {
-    primary: 'green'
+    primary: '#222222',
+    secondary: '#363636',
+    tertiary: '#363636',
+    headerShadow: '#0000003f',
+    menu: '#999797',
+    illustration: '#363636'
   },
-  secondary: 'red'
+  text: {
+    common: '#ffffff',
+    menu: '#ffffff',
+    code: '#68826F',
+    link: '#bacfbf'
+  }
 }
 
 export { themeDark, themeLight }

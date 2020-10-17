@@ -4,13 +4,14 @@ import { useParams } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import ReactMarkdown from 'react-markdown'
 import { CopyBlock, vs2015 } from 'react-code-blocks'
-
+import ReactPlayer from 'react-player'
 import { useDispatch, useSelector } from 'react-redux'
 
+import renderHeading from '../components/renderHeading'
 import allTheActions from '../actions'
-import ReactPlayer from 'react-player'
 
 import { devices } from '../config/devices'
+import { StyledH1 } from '../components/texts'
 
 const renderCode = ({ value, language }) => {
   return <CopyBlock text={value} theme={vs2015} language={language} wrapLines />
@@ -34,7 +35,7 @@ const Lesson = ({ history }) => {
     <Container>
       <LessonContainer>
         <TitleContainer>
-          <h1>{lesson?.title}</h1>
+          <StyledH1>{lesson?.title}</StyledH1>
         </TitleContainer>
         {lesson?.video_url ? (
           <VideoContainer>
@@ -51,7 +52,9 @@ const Lesson = ({ history }) => {
             source={lesson?.content}
             renderers={{
               code: renderCode,
-              paragraph: StyledP
+              paragraph: StyledP,
+              heading: renderHeading,
+              link: StyledA
             }}
           ></ReactMarkdown>
         </WriteContainer>
@@ -112,9 +115,15 @@ const NextLesson = styled.div`
 `
 
 const StyledP = styled.p`
+  color: ${props => props.theme.text.common};
   & code {
-    color: red;
+    color: ${props => props.theme.text.code};
+    font-weight: bold;
   }
+`
+
+const StyledA = styled.a`
+  color: ${props => props.theme.text.link};
 `
 
 const Container = styled.div`

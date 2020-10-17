@@ -3,8 +3,14 @@ import PropTypes from 'prop-types'
 
 import styled from 'styled-components'
 
+import { Label } from '../texts'
+
 const HeaderButton = ({ label = 'ace', onClick }) => {
-  return <ButtonContainer onClick={onClick}>{label}</ButtonContainer>
+  return (
+    <ButtonContainer onClick={onClick}>
+      {<Label>{label}</Label>}
+    </ButtonContainer>
+  )
 }
 
 const ButtonContainer = styled.div`
