@@ -26,7 +26,6 @@ const Lesson = ({ history }) => {
   const lesson = useSelector(state => state.lesson.lessonContent)
   const { idCourse, idLesson } = useParams()
   const dispatch = useDispatch()
-
   useEffect(() => {
     dispatch(allTheActions.lesson.getLesson({ idLesson }))
   }, [dispatch, idLesson])
@@ -47,17 +46,19 @@ const Lesson = ({ history }) => {
             ></ReactPlayer>
           </VideoContainer>
         ) : null}
-        <WriteContainer>
-          <ReactMarkdown
-            source={lesson?.content}
-            renderers={{
-              code: renderCode,
-              paragraph: StyledP,
-              heading: renderHeading,
-              link: StyledA
-            }}
-          ></ReactMarkdown>
-        </WriteContainer>
+        {lesson?.content ? (
+          <WriteContainer>
+            <ReactMarkdown
+              source={lesson?.content}
+              renderers={{
+                code: renderCode,
+                paragraph: StyledP,
+                heading: renderHeading,
+                link: StyledA
+              }}
+            ></ReactMarkdown>
+          </WriteContainer>
+        ) : null}
       </LessonContainer>
       {lesson?.nextLesson ? (
         <NextLesson
@@ -96,6 +97,7 @@ const VideoContainer = styled.div`
 const NextText = styled.div`
   color: ${props => props.theme.text.common};
   font-weight: bold;
+  padding: 12px;
 `
 
 const TitleContainer = styled.div`
@@ -103,6 +105,8 @@ const TitleContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 12px;
+  text-align: center;
 `
 
 const NextLesson = styled.div`
@@ -112,6 +116,7 @@ const NextLesson = styled.div`
   padding: 12px;
   cursor: pointer;
   background-color: ${props => props.theme.general.secondary};
+  text-align: center;
 `
 
 const StyledP = styled.p`
@@ -147,6 +152,7 @@ const WriteContainer = styled.div`
   background-color: ${props => props.theme.general.secondary};
   margin: 12px;
   border-radius: 12px;
+  width: 100%;
 `
 
 Lesson.propTypes = {
