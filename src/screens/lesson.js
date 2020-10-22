@@ -43,6 +43,7 @@ const Lesson = ({ history }) => {
               pip={true}
               url={lesson?.video_url}
               width='100%'
+              controls
             ></ReactPlayer>
           </VideoContainer>
         ) : null}
