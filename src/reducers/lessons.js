@@ -1,4 +1,4 @@
-import { DISPLAY_LESSONS } from '../actions/lessons'
+import { DISPLAY_LESSONS, CLEAR_LESSONS } from '../actions/lessons'
 
 const initialState = {
   lessonsList: []
@@ -10,6 +10,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         lessonsList: action.payload
+      }
+    case CLEAR_LESSONS:
+      return {
+        ...state,
+        lessonsList: []
       }
     default:
       return state

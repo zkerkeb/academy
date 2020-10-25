@@ -1,10 +1,15 @@
 import axios from 'axios'
 
 export const DISPLAY_LESSON = 'DISPLAY_LESSON'
+export const CLEAR_LESSON = 'CLEAR_LESSON'
 
 export const displayLesson = payload => ({
   type: DISPLAY_LESSON,
   payload
+})
+
+export const clearLesson = () => ({
+  type: CLEAR_LESSON
 })
 
 export const getLesson = ({ idLesson }) => dispatch => {

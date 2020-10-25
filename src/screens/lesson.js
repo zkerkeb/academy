@@ -28,6 +28,9 @@ const Lesson = ({ history }) => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(allTheActions.lesson.getLesson({ idLesson }))
+    return () => {
+      dispatch(allTheActions.lesson.clearLesson())
+    }
   }, [dispatch, idLesson])
 
   return (
@@ -55,7 +58,9 @@ const Lesson = ({ history }) => {
                 code: renderCode,
                 paragraph: StyledP,
                 heading: renderHeading,
-                link: StyledA
+                link: StyledA,
+                listItem: StyledLi,
+                image: Image
               }}
             ></ReactMarkdown>
           </WriteContainer>
@@ -95,6 +100,10 @@ const VideoContainer = styled.div`
     width: 100%;
   }
 `
+const Image = styled.img`
+  width: 100%;
+`
+
 const NextText = styled.div`
   color: ${props => props.theme.text.common};
   font-weight: bold;
@@ -120,7 +129,7 @@ const NextLesson = styled.div`
   text-align: center;
 `
 
-const StyledP = styled.p`
+const StyledP = styled.span`
   color: ${props => props.theme.text.common};
   & code {
     color: ${props => props.theme.text.code};
@@ -128,8 +137,13 @@ const StyledP = styled.p`
   }
 `
 
+const StyledLi = styled.li`
+  color: ${props => props.theme.text.common};
+`
+
 const StyledA = styled.a`
   color: ${props => props.theme.text.link};
+  word-break: break-word;
 `
 
 const Container = styled.div`

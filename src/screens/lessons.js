@@ -14,6 +14,9 @@ const Lessons = ({ history }) => {
 
   useEffect(() => {
     dispatch(allTheActions.lessons.getLessons({ idCourse }))
+    return () => {
+      dispatch(allTheActions.lessons.clearLessons())
+    }
   }, [dispatch, idCourse])
 
   return (
