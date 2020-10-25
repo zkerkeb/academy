@@ -129,7 +129,7 @@ const NextLesson = styled.div`
   text-align: center;
 `
 
-const StyledP = styled.span`
+const StyledP = styled.p`
   color: ${props => props.theme.text.common};
   & code {
     color: ${props => props.theme.text.code};
