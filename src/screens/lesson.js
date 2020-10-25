@@ -102,6 +102,7 @@ const VideoContainer = styled.div`
 `
 const Image = styled.img`
   width: 100%;
+  max-width: 720px;
 `
 
 const NextText = styled.div`
