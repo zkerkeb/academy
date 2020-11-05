@@ -12,6 +12,7 @@ import allTheActions from '../actions'
 
 import { devices } from '../config/devices'
 import { StyledH1 } from '../components/texts'
+import { FaArrowLeft } from 'react-icons/fa'
 
 const renderCode = ({ value, language }) => {
   return <CopyBlock text={value} theme={vs2015} language={language} wrapLines />
@@ -37,7 +38,16 @@ const Lesson = ({ history }) => {
     <Container>
       <LessonContainer>
         <TitleContainer>
-          <StyledH1>{lesson?.title}</StyledH1>
+          <GoBackArrow
+            onClick={() => {
+              history.goBack()
+            }}
+          >
+            <FaArrowLeft size={20} color='white'></FaArrowLeft>
+          </GoBackArrow>
+          <TitleHandler>
+            <StyledH1>{lesson?.title}</StyledH1>
+          </TitleHandler>
         </TitleContainer>
         {lesson?.video_url ? (
           <VideoContainer>
@@ -83,6 +93,17 @@ const Lesson = ({ history }) => {
   )
 }
 
+const GoBackArrow = styled.div`
+  background-color: ${props => props.theme.general.secondary};
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 const VideoContainer = styled.div`
   @media ${devices.desktopL} {
     width: 800px;
@@ -108,6 +129,11 @@ const Image = styled.img`
 const NextText = styled.div`
   color: ${props => props.theme.text.common};
   font-weight: bold;
+  padding: 12px;
+`
+
+const TitleHandler = styled.div`
+  width: 100%;
   padding: 12px;
 `
 
