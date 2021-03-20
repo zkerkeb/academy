@@ -5,9 +5,9 @@ import styled from 'styled-components'
 
 import { Label } from '../texts'
 
-const HeaderButton = ({ label = 'ace', onClick }) => {
+const HeaderButton = ({ label = 'ace', onClick, isSelected }) => {
   return (
-    <ButtonContainer onClick={onClick}>
+    <ButtonContainer onClick={onClick} isSelected={isSelected}>
       {<Label>{label}</Label>}
     </ButtonContainer>
   )
@@ -20,11 +20,13 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid ${props => props.theme.general.tertiary};
+  border-bottom: ${props =>
+    props.isSelected ? `2px solid ${props.theme.general.tertiary}` : 'none'};
 `
 HeaderButton.propTypes = {
   label: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  isSelected: PropTypes.bool
 }
 
 export default HeaderButton

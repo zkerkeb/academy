@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
@@ -10,17 +10,24 @@ import allTheActions from '../actions'
 
 const Home = ({ history }) => {
   const courses = useSelector(state => state.courses)
-  const { coursesList } = courses
+  const { coursesList, coursesFilter } = courses
+  console.log('Home -> coursesList', coursesList)
+  const [coursesDisplayer, setCoursesDisplayer] = useState(coursesList)
+  console.log('Home -> coursesDisplayer', coursesDisplayer)
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(allTheActions.courses.getCourses())
-  }, [dispatch])
+    dispatch(allTheActions.courses.getCourses(coursesFilter))
+  }, [dispatch, coursesFilter])
+
+  useEffect(() => {
+    setCoursesDisplayer(coursesList)
+  }, [coursesList])
 
   return (
     <Container>
       <CategoryContainer>
-        {coursesList[0] ? (
-          coursesList.map(course => (
+        {coursesDisplayer[0] ? (
+          coursesDisplayer.map(course => (
             <ButtonCategory
               key={course.id}
               cover={course?.cover?.url}

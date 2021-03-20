@@ -17,7 +17,7 @@ import {
 const GlobalStyle = createGlobalStyle`
   body {
     transition: background-color 1s ease;
-    background-color: ${props => props.theme.general.primary};
+    background-color: ${props => props?.theme?.general?.primary};
   }
   html, body {
   overflow-x: hidden;

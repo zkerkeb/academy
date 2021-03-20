@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useWindowWidth } from '@react-hook/window-size'
 import { FaBars } from 'react-icons/fa'
+import { useDispatch, useSelector } from 'react-redux'
 
 import HeaderButton from '../headerButton'
 import BurgerMenu from '../burgerMenu'
@@ -16,18 +17,32 @@ import { useContext } from 'react'
 import { ThemeContext } from 'styled-components'
 import ThemeButton from '../settingsButtons/themeButton'
 
+import allTheActions from '../../actions'
+
 const Header = () => {
   const { t } = useTranslation()
+  const dispatch = useDispatch()
   const history = useHistory()
   const [menuOpen, setMenuOpen] = useState(false)
   const windowWidth = useWindowWidth()
   const [animation, setAnimation] = useState('hidden')
+  const coursesFilter = useSelector(state => state.courses.coursesFilter)
   let timer = useRef(null)
   const theme = useContext(ThemeContext)
 
-  const handleClickMobile = location => {
+  const handleClickMobile = (location, filter) => {
+    if (filter) {
+      dispatch(allTheActions.courses.setFilter(filter))
+    }
     history.push(location)
     handleClose()
+  }
+
+  const handleClick = (location, filter) => {
+    if (filter) {
+      dispatch(allTheActions.courses.setFilter(filter))
+    }
+    history.push(location)
   }
 
   const handleOpen = () => {
@@ -48,18 +63,29 @@ const Header = () => {
       <LogoContainer onClick={() => history.push('/')}>
         <Logo src={theme.logo}></Logo>
       </LogoContainer>
-
       <ButtonContainer>
         <HeaderButton
-          onClick={() => history.push('/')}
+          isSelected={coursesFilter === 'Cours'}
+          onClick={() => handleClick('/', 'Cours')}
           label={t('menu.courses')}
         ></HeaderButton>
+        <HeaderButton
+          isSelected={coursesFilter === 'Projets'}
+          onClick={() => handleClick('/', 'Projets')}
+          label={t('menu.project')}
+        ></HeaderButton>
+        <HeaderButton
+          isSelected={coursesFilter === 'Corrections'}
+          onClick={() => handleClick('/', 'Corrections')}
+          label={t('menu.corrections')}
+        ></HeaderButton>
       </ButtonContainer>
+
       <ThemeContainer>
         <ThemeButton></ThemeButton>
       </ThemeContainer>
       <MenuBurger onClick={handleOpen}>
-        <FaBars size={30} color={theme.general.menu}></FaBars>
+        <FaBars size={30} color={theme?.general?.menu}></FaBars>
       </MenuBurger>
       <BurgerMenu
         windowWidth={windowWidth}
@@ -90,7 +116,7 @@ const MenuBurger = styled.div`
 
 const ButtonContainer = styled.div`
   margin-left: 12px;
-
+  width: 100%;
   display: flex;
   @media ${devices.laptop} {
     display: none;
@@ -108,7 +134,8 @@ const Logo = styled.img`
 `
 
 const ThemeContainer = styled.div`
-  padding: 12px;
+  padding: 12px 24px;
+  margin-right: 12px;
 `
 
 const HeaderContainer = styled.div`

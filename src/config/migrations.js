@@ -7,6 +7,15 @@ const migrations = {
         name: 'light'
       }
     }
+  },
+  1: state => {
+    return {
+      ...state,
+      courses: {
+        ...state.courses,
+        coursesFilter: 'Cours'
+      }
+    }
   }
 }
 

@@ -9,7 +9,7 @@ import migrations from './migrations'
 const persistConfig = {
   key: 'root',
   storage,
-  version: 0,
+  version: 1,
   whiteList: ['theme'],
   migrate: createMigrate(migrations, { debug: true })
 }

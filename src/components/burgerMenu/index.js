@@ -43,8 +43,16 @@ const BurgerMenu = ({
           </CrossClickable>
         </CrossContainer>
         <MenuContent>
-          <MenuLateralButton onClick={() => handleClickMobile(`/`)}>
+          <MenuLateralButton onClick={() => handleClickMobile(`/`, 'Cours')}>
             <MenuText>{t('menu.courses')}</MenuText>
+          </MenuLateralButton>
+          <MenuLateralButton onClick={() => handleClickMobile(`/`, 'Projets')}>
+            <MenuText>{t('menu.project')}</MenuText>
+          </MenuLateralButton>
+          <MenuLateralButton
+            onClick={() => handleClickMobile(`/`, 'Corrections')}
+          >
+            <MenuText>{t('menu.corrections')}</MenuText>
           </MenuLateralButton>
         </MenuContent>
       </MenuVisible>

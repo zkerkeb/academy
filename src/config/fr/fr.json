@@ -1,6 +1,8 @@
 {
   "translation":{
   "menu": {
-    "courses": "Cours"
+    "courses": "Cours",
+    "project": "Projets",
+    "corrections": "Corrections"
   }
 }}
